@@ -112,8 +112,6 @@
     ],
     "no-use-before-define": 2,
 
-    "callback-return": 2,
-
     "array-bracket-spacing": 2,
     "brace-style": 2,
     "camelcase": 2,
