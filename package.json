@@ -7,8 +7,6 @@
     "browser-sync": "^2.10.1",
     "chai": "^3.4.1",
     "eslint": "^1.10.3",
-    "eslint-config-airbnb-es5": "^1.0.8",
-    "eslint-plugin-react": "^3.11.3",
     "express": "^4.13.3",
     "express-partials": "^0.3.0",
     "gulp": "^3.9.0",
@@ -30,25 +28,6 @@
     "run-sequence": "^1.1.5",
     "underscore": "^1.8.3",
     "url": "^0.11.0"
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": 1,
-      "mocha": 1,
-      "node": true
-    },
-    "globals": {
-      "angular": 1
-    },
-    "extends": "airbnb-es5",
-    "rules": {
-      "react/jsx-quotes": 0,
-      "jsx-quotes": [
-        2,
-        "prefer-double"
-      ],
-      "func-names": 0
-    }
   },
   "devDependencies": {},
   "engines": {
