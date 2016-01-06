@@ -6,6 +6,7 @@ var utils = require('./utils.js');
 module.exports = function(app, express) {
   var usersRouter = express.Router();
   var recipesRouter = express.Router();
+  var formularRouter = express.Router();
 
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({extended: true}));
@@ -14,12 +15,14 @@ module.exports = function(app, express) {
 
   app.use('/api/users', usersRouter);
   app.use('/api/recipes', recipesRouter);
+  app.use('/api/formula', formularRouter);
   app.use('*', function(req, res) {
     res.status(404).send('404: Page not found');
   });
 
   require('../user/userRoutes.js')(usersRouter);
   require('../recipes/recipeRoutes.js')(recipesRouter);
+  require('../formula/formulaRoutes.js')(formularRouter);
 
   app.use(utils.logError);
   app.use(utils.handleError);
