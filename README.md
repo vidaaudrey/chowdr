@@ -1,12 +1,12 @@
-# tinnr
-What's for dinner?
-Tinnr, it's for dinner.
+# chowdr
+Not sure what to have for dinner?
+Why don't you try Chowdr
 
-[Tinnr](www.tinnr.com)
+[Chowdr]( http://chowdr9.herokuapp.com/)
 
 ## Introduction
 
-Tinnr is a project dedicated to offering users with many different recipe choices. Our goal is for people to explore new recipes that fit any occasion.
+Chowdr is a project dedicated to offering users with many different recipe choices. Our goal is for people to explore new recipes that fit any occasion.
 
 ## Getting Started
 
@@ -23,9 +23,26 @@ Note: To use mongod, you must set the database path. You can do so with the foll
 mongod --dbpath <path>
 ```
 
+Note: If mongod gives you a data/db error; try the following.
+```
+mkdir -p /data/db
+```
+or
+```
+sudo mkdir -p /data/db
+```
+Note: if mongod gives you a "failed errno:48 Address already in use for socket" error.  Try the following.
+```
+pkill -f mongod
+```
+
+File Update Notes:  Currently gulp is not set up to watch for changes.  In order to properly view changes on your local host, close the server, run gulp build and then start your server again.
+(Running 'gulp' vs 'gulp build' will require you to manualy stop gulp when the build is done)
+
 ## Tests
 
 Currently, we have a test for our server side inside our test folder.
+More tests Coming soon
 
 ## File Structure
 
@@ -51,13 +68,10 @@ We used Yummly's API for our recipes.
 - Preferences are saved to the User
 
 ## In progress
-- Swiping for recipes
-- Compile all saved recipe ingredients to make shopping list
-- Show number of user favorites on saved recipes (We already iterate the numberOfSaves in the recipe Schema)
-- Refactor to a SQL database for larger production scale
+- Implement new home page landing/about page
 - Implement search box for query string in api call
-- Allow user to submit included and excluded recipes
-- Display a user dashboard
+- Implement food details view
+- Implement display of nutritional values/calorie count
 
 ## Git Workflow
 
@@ -65,13 +79,13 @@ Please refer to the CONTRIBUTING.md file to see our git workflow.
 
 ## Style Guide
 
-We used airbnb's es5 style guide at the following link 
+We used airbnb's es5 style guide at the following link
 [airbnb es5 style guide](https://github.com/airbnb/javascript/tree/master/es5)
 
 ## Contributors
-- Elliot Chi ([elliotschi](https://github.com/elliotschi))
-- Peter Kaiser ([pkaiserui](https://github.com/pkaiserui))
-- Ian B. ([ibari](https://github.com/ibari))
-- Sean Gibson ([seanagibson](https://github.com/seanagibson))
+- Ahmed Modan ([ahmedmodan](https://github.com/ahmedmodan))
+- Benji Marinacci ([bcmarinacci](https://github.com/bcmarinacci))
+- Audrey Li ([vidaaudrey](https://github.com/vidaaudrey))
+- Christoper Decker ([altroncwd](https://github.com/altroncwd))
 
-MKS Greenfield Project
+MKS Legacy Project
