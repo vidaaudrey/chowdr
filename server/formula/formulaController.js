@@ -7,11 +7,11 @@ module.exports = {
   getFormula: function(req, res, next) {
     var YUMMLY_API_ID = process.env.YUMMLY_API_ID || apiInfo.API_ID;
     var YUMMLY_API_KEY = process.env.YUMMLY_API_KEY || apiInfo.API_KEY;
-    var params = url.parse(req.url).query;
+    var params = url.parse(req.url).path;
 
 
-    if (url.parse(req.url).query) {
-      var apiURL = 'http://api.yummly.com/v1/api/recipe/' + params + '?_app_id=' + YUMMLY_API_ID + '&_app_key=' + YUMMLY_API_KEY;
+    if (params) {
+      var apiURL = 'http://api.yummly.com/v1/api/recipe' + params + '?_app_id=' + YUMMLY_API_ID + '&_app_key=' + YUMMLY_API_KEY;
 
       request(apiURL, function(err, response, body) {
         if (err) {
