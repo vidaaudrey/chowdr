@@ -5,13 +5,13 @@ angular.module('tinnr.auth', [])
 
     $scope.signin = function () {
       Auth.signin($scope.user)
-        .then(function (user) { 
+        .then(function (user) {
           User.data = user;
           $window.localStorage.setItem('com.tinnr', user.token);
           $state.go('meals');
         })
         .catch(function (error) {
-          $scope.alerts.push({type: 'danger', msg: error.data.error});
+          $scope.alerts.push({ type: 'danger', msg: error.data.error });
           console.error(error);
         });
     };
@@ -24,7 +24,7 @@ angular.module('tinnr.auth', [])
           $state.go('meals');
         })
         .catch(function (error) {
-          $scope.alerts.push({type: 'danger', msg: error.data.error});
+          $scope.alerts.push({ type: 'danger', msg: error.data.error });
           console.error(error);
         });
     };

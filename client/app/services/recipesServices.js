@@ -1,5 +1,5 @@
 angular.module('tinnr.recipesServices', [])
-  .factory('Recipes', ['$http', function($http) {
+  .factory('Recipes', ['$http', function ($http) {
     var recipes = {};
 
     recipes.getRecipes = function (params) {

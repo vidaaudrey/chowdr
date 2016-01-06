@@ -1,5 +1,5 @@
 angular.module('tinnr.mealsServices', [])
-  .factory('Meals', ['$http', function($http) {
+  .factory('Meals', ['$http', function ($http) {
     var meals = {};
 
     meals.getMeals = function () {
@@ -25,5 +25,5 @@ angular.module('tinnr.mealsServices', [])
       });
     };
 
-    return meals; 
+    return meals;
   }]);

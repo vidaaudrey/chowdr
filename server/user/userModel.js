@@ -21,10 +21,10 @@ var UserSchema = new mongoose.Schema({
   }
 });
 
-UserSchema.methods.checkPassword = function(password) {
+UserSchema.methods.checkPassword = function (password) {
   var defer = Q.defer();
   var savedPW = this.password;
-  bcrypt.compare(password, savedPW, function(err, isMatch) {
+  bcrypt.compare(password, savedPW, function (err, isMatch) {
     if (err) {
       defer.reject(err);
     } else {
@@ -34,18 +34,18 @@ UserSchema.methods.checkPassword = function(password) {
   return defer.promise;
 };
 
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', function (next) {
   var user = this;
 
   if (!user.isModified('password')) {
     return next();
   }
 
-  bcrypt.genSalt(SALT, function(err, salt) {
+  bcrypt.genSalt(SALT, function (err, salt) {
     if (err) {
       return next(err);
     }
-    bcrypt.hash(user.password, salt, function(error, hash) {
+    bcrypt.hash(user.password, salt, function (error, hash) {
       if (error) {
         return next(error);
       }
