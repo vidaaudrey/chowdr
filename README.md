@@ -27,6 +27,7 @@ Note: If mongod gives you a data/db error; try the following.
 ```
 mkdir -p /data/db
 ```
+
 or
 ```
 sudo mkdir -p /data/db
@@ -43,6 +44,19 @@ File Update Notes:  Currently gulp is not set up to watch for changes.  In order
 
 Currently, we have a test for our server side inside our test folder.
 More tests Coming soon
+
+
+## Linting
+
+Show all errors and warnings:
+```
+npm run lint
+```
+
+Fix (most) errors and show the remaining ones (warnings will be silenced)
+```
+npm run lint:fix
+```
 
 ## File Structure
 
