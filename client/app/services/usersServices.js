@@ -1,5 +1,5 @@
 angular.module('tinnr.usersServices', [])
-  .factory('User', ['$http', function($http) {
+  .factory('User', ['$http', function ($http) {
     var user = {};
 
     user.data = {

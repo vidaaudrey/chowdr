@@ -3,19 +3,19 @@ var Q = require('q');
 var jwt = require('jwt-simple');
 
 module.exports = {
-  signin: function(req, res, next) {
+  signin: function (req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
 
     var findUser = Q.nbind(User.findOne, User);
-    findUser({username: username})
-      .then(function(user) {
+    findUser({ username: username })
+      .then(function (user) {
         if (!user) {
-          res.status(401).send({error: 'User does not exist'});
+          res.status(401).send({ error: 'User does not exist' });
           next(new Error('User does not exist'));
         } else {
           return user.checkPassword(password)
-            .then(function(foundUser) {
+            .then(function (foundUser) {
               if (foundUser) {
                 var token = jwt.encode(user, 'secret');
                 res.json({
@@ -30,11 +30,11 @@ module.exports = {
             });
         }
       })
-      .fail(function(error) {
+      .fail(function (error) {
         next(error);
       });
   },
-  signup: function(req, res, next) {
+  signup: function (req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
     var dietPreferences = req.body.preferences;
@@ -42,10 +42,10 @@ module.exports = {
     var findOne = Q.nbind(User.findOne, User);
 
     // check to see if user already exists
-    findOne({username: username})
-      .then(function(user) {
+    findOne({ username: username })
+      .then(function (user) {
         if (user) {
-          res.status(403).send({error: 'User already exist!'});
+          res.status(403).send({ error: 'User already exist!' });
           next(new Error('User already exist!'));
         } else {
           var newUser = {
@@ -57,44 +57,44 @@ module.exports = {
           return newSignupUser.save();
         }
       })
-      .then(function(user) {
+      .then(function (user) {
         // create token to send back for auth
         var token = jwt.encode(user, 'secret');
-        res.json({token: token});
+        res.json({ token: token });
       })
-      .fail(function(error) {
+      .fail(function (error) {
         next(error);
       });
   },
-  checkAuth: function(req, res, next) {
+  checkAuth: function (req, res, next) {
     var token = req.headers['x-access-token'];
     if (!token) {
       next(new Error('no token'));
     } else {
       var user = jwt.decode(token, 'secret');
       var findUser = Q.nbind(User.findOne, User);
-      findUser({username: user.username})
-        .then(function(foundUser) {
+      findUser({ username: user.username })
+        .then(function (foundUser) {
           if (foundUser) {
             res.status(200).send();
           } else {
             res.status(401).send();
           }
         })
-        .fail(function(error) {
+        .fail(function (error) {
           next(error);
         });
     }
   },
-  getSavedMeals: function(req, res, next) {
+  getSavedMeals: function (req, res, next) {
     var token = req.headers['x-access-token'];
     if (!token) {
       next(new Error('no token'));
     } else {
       var user = jwt.decode(token, 'secret');
       var findUser = Q.nbind(User.findOne, User);
-      findUser({username: user.username})
-        .then(function(foundUser) {
+      findUser({ username: user.username })
+        .then(function (foundUser) {
           if (foundUser) {
             var recipes = foundUser.savedRecipes;
             res.status(200);
@@ -103,12 +103,12 @@ module.exports = {
             res.status(401).send();
           }
         })
-        .fail(function(error) {
+        .fail(function (error) {
           next(error);
         });
     }
   },
-  saveMeal: function(req, res, next) {
+  saveMeal: function (req, res, next) {
     var token = req.headers['x-access-token'];
     var mealId = req.body;
 
@@ -117,15 +117,15 @@ module.exports = {
     } else {
       var user = jwt.decode(token, 'secret');
       var findUser = Q.nbind(User.findOne, User);
-      findUser({username: user.username})
-        .then(function(foundUser) {
+      findUser({ username: user.username })
+        .then(function (foundUser) {
           if (foundUser && foundUser.savedRecipes.indexOf(mealId) === -1) {
             foundUser.savedRecipes.push(mealId);
             Q.ninvoke(foundUser, 'save')
-              .then(function() {
+              .then(function () {
                 res.status(200).send();
               })
-              .fail(function(error) {
+              .fail(function (error) {
                 res.status(400).send();
                 next(error);
               });
@@ -133,12 +133,12 @@ module.exports = {
             res.status(401).send();
           }
         })
-        .fail(function(error) {
+        .fail(function (error) {
           next(error);
         });
     }
   },
-  saveDietPreferences: function(req, res, next) {
+  saveDietPreferences: function (req, res, next) {
     var token = req.headers['x-access-token'];
     var dietPreferences = req.body.preferences;
 
@@ -147,15 +147,15 @@ module.exports = {
     } else {
       var user = jwt.decode(token, 'secret');
       var findUser = Q.nbind(User.findOne, User);
-      findUser({username: user.username})
-        .then(function(foundUser) {
+      findUser({ username: user.username })
+        .then(function (foundUser) {
           if (foundUser) {
             foundUser.dietPreferences = dietPreferences;
             Q.ninvoke(foundUser, 'save')
-              .then(function() {
+              .then(function () {
                 res.status(200).send();
               })
-              .fail(function(err) {
+              .fail(function (err) {
                 res.status(400).send();
                 next(err);
               });
@@ -163,12 +163,12 @@ module.exports = {
             res.status(401).send();
           }
         })
-        .fail(function(error) {
+        .fail(function (error) {
           next(error);
         });
     }
   },
-  getDietPreferences: function(req, res, next) {
+  getDietPreferences: function (req, res, next) {
     var token = req.headers['x-access-token'];
 
     if (!token) {
@@ -176,8 +176,8 @@ module.exports = {
     } else {
       var user = jwt.decode(token, 'secret');
       var findUser = Q.nbind(User.findOne, User);
-      findUser({username: user.username})
-        .then(function(foundUser) {
+      findUser({ username: user.username })
+        .then(function (foundUser) {
           if (foundUser) {
             var dietPreferences = foundUser.dietPreferences;
             res.status(200);
@@ -186,7 +186,7 @@ module.exports = {
             res.status(401).send();
           }
         })
-        .fail(function(error) {
+        .fail(function (error) {
           next(error);
         });
     }

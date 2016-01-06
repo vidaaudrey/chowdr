@@ -4,7 +4,7 @@ angular.module('tinnr.meals', [])
     $scope.meals = [];
     $scope.offsets = 0;
 
-    $scope.getMeals = function() {
+    $scope.getMeals = function () {
       Meals.getMeals()
         .then(function (res) {
           $scope.offsets = $scope.cols - (res.data.length % $scope.cols);
