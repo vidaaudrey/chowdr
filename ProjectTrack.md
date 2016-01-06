@@ -22,7 +22,8 @@
 
 ## Information
 * Heroku deploy Link: http://chowdr9.herokuapp.com/ 
-* 
+* How to get recipe details: http://localhost:3000/api/formula/CrockPot-Spaghetti-1426599
+
 
 ## Ongoing Tasks 
 [ ] Setup Github Repo - Chris & Benji
