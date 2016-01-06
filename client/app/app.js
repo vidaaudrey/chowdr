@@ -13,7 +13,7 @@ angular.module('tinnr', [
   'ui.bootstrap'
 ])
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -42,6 +42,12 @@ angular.module('tinnr', [
       url: '/meals',
       controller: 'MealsController',
       authenticate: true
+    })
+    .state('formula', {
+      templateUrl: 'app/formula/formula.html',
+      url: '/formula',
+      controller: 'FormulaController',
+      authenticate: false
     });
 
   $httpProvider.interceptors.push('AttachTokens');
@@ -75,7 +81,7 @@ angular.module('tinnr', [
       $state.go('signin');
     } else if (((toState.name === 'signup') || (toState.name === 'signin')) && Auth.isAuth()) {
       event.preventDefault();
-      $state.go('meals');  
+      $state.go('meals');
     }
   });
 });
