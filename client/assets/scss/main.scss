@@ -18,7 +18,7 @@ html {
 
 body {
     margin: 0;
-    margin-bottom: 112px;
+    margin-bottom: 0;
     color: $black-base;
     font-size: 1.1rem;
     font-family: $roboto;
@@ -88,6 +88,9 @@ a {
 
 nav {
     &.navbar-default {
+        position: absolute;
+        top: 0;
+        width: 100%;
         background: linear-gradient($black-transparent, transparent);
         border: none;
         .navbar-brand {
@@ -104,7 +107,7 @@ nav {
         .navbar-right {
             li {
                 a {
-                    color: $black-base;
+                    color: $primary-color;
                     &:active,
                     &:hover {
                         color: $dark-primary-color;
@@ -122,8 +125,11 @@ nav {
 
 main {
     margin: 0 auto;
-    min-height: 500px;
+    min-height: 600px;
     background-color: $white-base;
+    .content-container {
+        padding-top: 80px;
+    }
 }
 
 
@@ -136,8 +142,7 @@ footer {
     width: 100%;
     padding: 16px 0;
     position: absolute;
-    left: 0;
-    bottom: 0;
+    bottom: -16px;
     background-color: $black-base;
     color: $gray-light;
 }
@@ -147,19 +152,16 @@ footer {
 * HomePage  styling
 * ========================================================================== */
 
-#home-container {
-    .home-inner-box {
-        min-height: 400px;
-    }
-    .explore-links {
-        width: 100%;
-    }
-    .movie-search {
-        width: 100%;
-        .btn-success {
-            width: 80px;
-        }
-    }
+.jumbotron-home {
+    background: url('../img/home-bg-small-compressor.jpeg');
+    min-height: 1000px;
+    padding-top: 400px;
+    // margin: 0;
+    @include cover-background();
+}
+
+.search-recipe-form {
+    min-width: 100px;
 }
 
 
