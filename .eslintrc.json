@@ -9,7 +9,8 @@
   "globals": {
     "angular": false,
     "_": false,
-    "db": true
+    "db": true,
+    "bs": true
   },
 
   "rules": {
