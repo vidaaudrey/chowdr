@@ -18,7 +18,7 @@ html {
 
 body {
     margin: 0;
-    margin-bottom: 112px;
+    margin-bottom: 0;
     color: $black-base;
     font-size: 1.1rem;
     font-family: $roboto;
@@ -88,6 +88,9 @@ a {
 
 nav {
     &.navbar-default {
+        position: absolute;
+        top: 0;
+        width: 100%;
         background: linear-gradient($black-transparent, transparent);
         border: none;
         .navbar-brand {
@@ -124,6 +127,9 @@ main {
     margin: 0 auto;
     min-height: 600px;
     background-color: $white-base;
+    .content-container {
+        padding-top: 80px;
+    }
 }
 
 
@@ -150,7 +156,7 @@ footer {
     background: url('../img/home-bg-small-compressor.jpeg');
     min-height: 1000px;
     padding-top: 400px;
-    margin: 0;
+    // margin: 0;
     @include cover-background();
 }
 
