@@ -45,9 +45,10 @@ angular.module('tinnr', [
       authenticate: true
     })
     .state('recipeList', {
-      templateUrl: 'app/meals/meals.html',
+      templateUrl: 'app/recipeList/recipeList.html',
       url: '/recipeSearchResults',
-      controller: 'MealsController'
+      controller: 'MealsController',
+      params: { searchResponse: null }
     })
     .state('formula', {
       templateUrl: 'app/formula/formula.html',
