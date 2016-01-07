@@ -53,9 +53,23 @@ Show all errors and warnings:
 npm run lint
 ```
 
-Fix (most) errors and show the remaining ones (warnings will be silenced)
+Fix (most) errors and show the remaining ones (warnings will be silenced):
 ```
 npm run lint:fix
+```
+
+## Server and Build Watcher
+
+Start the server, run build, and watch for changes:
+```
+npm start
+```
+
+## Hot Reload
+
+Open your default web browser and reload when changes occur in client/ directory
+```
+npm run sync
 ```
 
 ## File Structure
