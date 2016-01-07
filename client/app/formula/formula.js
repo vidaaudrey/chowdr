@@ -1,6 +1,16 @@
 angular.module('tinnr.formula', [])
   .controller('FormulaController', ['$scope', function ($scope) {
     $scope.recipe = recipe;
+    $scope.image = recipe['images'][0]['hostedLargeUrl'];
+    $scope.totalCaleries = recipe.nutritionEstimates.reduce(function (total, item) {
+      total += item.value;
+      return total;
+    }, 0);
+    $scope.flavorObject = Object.keys(recipe.flavors).reduce(function (total, item) {
+      total[item] = Math.floor(recipe.flavors[item] * 10000);
+      return total;
+    }, {});
+    // console.log('hello', $scope.image, $scope.flavorObject, $scope.totalCaleries);
   }]);
 
 var recipe = {

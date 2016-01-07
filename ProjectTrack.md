@@ -18,6 +18,8 @@
 
 [ ] Youtube Video 
 
+[ ] Angular Animation 
+
 ===
 
 ## Information
@@ -37,7 +39,34 @@
 
 
 
-## Project Memo 
+## Project Meeting Memo 
+
+### Thursday January 07 2016
+**Discuss**
+* Demo time (2 minutes) to show learnings, code...
+* JSBin Angular Directive Demo
+* Pick Directives to work on 
+  - DeleteButton 
+  - AddButton 
+  - NutritionTable 
+  - RecipeListItem 
+  - RecipeList 
+  - IngredienceList
+  - IngredienceListItem (put AddButton inside )
+  - ShoppingList  (reuse IngredienceList? )
+  - ShoppingListItem (reuse IngredienceListItem? )
+  - FilterBar (filter recipes based on style, nutrition...) 
+    - Or ChowdrTab (ref [Creating Directives that Communicate](https://docs.angularjs.org/guide/directive)) [Demo](http://plnkr.co/edit/wDvUlXrnKAHRnN6X7Pa4?p=preview)
+
+  
+* Convert the current Footer to use [ng-include](http://www.w3schools.com/angular/angular_includes.asp) (~ 10 - 20 minutes work, if you like, create a global config file, and pass the footer messages such as copyright as parameters) 
+* Use [ng-Animate](http://www.w3schools.com/angular/angular_animations.asp) to animate one of your component 
+
+
+
+
+
+
 
 ### Wednesday January 06 2016
 
@@ -63,9 +92,12 @@ More look at issues
 
 
 ### Shared Information 
-[How to close Github Issues from terminal](https://help.github.com/articles/closing-issues-via-commit-messages/)
+#### [How to close Github Issues from terminal](https://help.github.com/articles/closing-issues-via-commit-messages/)
 * A commit message with `Fixes #45` will close issue 45 in that repository once the commit is merged into the default branch. 
 * `This closes #34, closes #23, and closes example_user/example_repo#42` would close issues #34 and #23 in the same repository, and issue #42 in the "example_user/example_repo" repository.
+
+#### [ng-bind is better than {{}} ?](http://stackoverflow.com/questions/16125872/angularjs-why-ng-bind-is-better-than-in-angular)
+In short, ng-bind is better at performance and doesn't flash {{...}} in the beginning
 
 
 ### Image Credit

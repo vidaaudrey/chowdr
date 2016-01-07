@@ -176,6 +176,14 @@ footer {
     .recipe-container {
         padding: 32px 0;
         margin-bottom: 50px;
+        .ingredience,
+        .tastes,
+        .nutritions {
+            margin-bottom: 60px;
+        }
+        .flavor-title {
+            width: 100px;
+        }
     }
 }
 

@@ -1,14 +1,14 @@
 <div class="recipe-page">
-    <div class="jumbotron jumbotron-recipe" style="background-image: url(http://i2.yummly.com/Hot-Turkey-Salad-Sandwiches-Allrecipes.l.png)">
+    <div class="jumbotron jumbotron-recipe" ng-style="{'background-image':'url('+ image + ')'}">
         <div class="container">
             <div class="col-sm-12 col-md-10 col-md-offset-1">
                 <h2>Hot Turkey Salad Sandwiches</h2>
                 <div class="recipe-meta">
-                    <span>Ingredients: 10 </span> /
-                    <span>Nutrition: 317.4 </span> /
-                    <span>Time: 30 Min </span> /
-                    <span>Serving: 6 </span> /
-                    <span>Rating: 4.44  </span>
+                    <span>Ingredients: {{recipe.ingredientLines.length}} </span> /
+                    <span>Nutrition: {{}}  </span> /
+                    <span>Time: {{recipe.totalTime}} </span> /
+                    <span>Serving: {{recipe.yield}} </span> /
+                    <span>Rating: {{recipe.rating}}  </span>
                 </div>
             </div>
         </div>
@@ -17,16 +17,26 @@
         <div class="col-sm-12 col-md-10 col-md-offset-1">
             <div class="ingredience">
                 <h3>Ingredients</h3>
-                <ul class="list-group">
-                    <li class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, magni. 1</li>
-                    <li class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, minima! 2</li>
-                    <li class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, laboriosam. 3</li>
+                <ul class="list-group" ng-repeat="ingredient in recipe.ingredientLines">
+                    <li class="list-group-item">{{ingredient}}
+                        <a href="#" class="pull-right"> <i class="fa fa-plus"></i></a>
+                    </li>
                 </ul>
             </div>
-            <div class="nutritions">
-                <div class="nutrition-estimates">
-                    <h3>Energy: 317.4 calories</h3>
+            <div class="tastes">
+                <h3>Tastes</h3>
+                <div ng-repeat="(key, value) in flavorObject">
+                    <div class="progress">
+                        <div class="pull-left flavor-title">{{key}}:</div>
+                        <div class="progress-bar progress-bar-success" role="progressbar" style="{{'width:'+ value+ '%'}}">
+                            {{value}}
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="nutritions">
+                <h3>Nutrition Facts</h3>
+                <b>Serving: {{recipe.yield}}</b>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -35,20 +45,10 @@
                             <th>Unit</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody ng-repeat="nutrition in recipe.nutritionEstimates">
                         <tr>
-                            <td>Energy</td>
-                            <td>314.4</td>
-                            <td>calorie</td>
-                        </tr>
-                        <tr>
-                            <td>Energy</td>
-                            <td>314.4</td>
-                            <td>calorie</td>
-                        </tr>
-                        <tr>
-                            <td>Energy</td>
-                            <td>314.4</td>
+                            <td>{{nutrition.description}}</td>
+                            <td>{{nutrition.value}}</td>
                             <td>calorie</td>
                         </tr>
                     </tbody>
