@@ -25,5 +25,16 @@ angular.module('tinnr.mealsServices', [])
       });
     };
 
+    meals.deleteMeal = function (meal) {
+      return $http({
+        method: 'DELETE',
+        url: '/api/users/meals',
+        data: meal
+      })
+      .then(function (res) {
+        return res;
+      });
+    };
+
     return meals;
   }]);
