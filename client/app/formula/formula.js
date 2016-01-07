@@ -13,7 +13,10 @@ angular.module('tinnr.formula', [])
       totalTime: '',
       rating: 0,
       images: [{
-        hostedLargeUrl: 'http://lorempixel.com/1000/800/animals/'
+        hostedLargeUrl: 'http://lorempixel.com/1000/800/animals/',
+        imageUrlsBySize: {
+          '360': 'http://lorempixel.com/800/600/food/'
+        }
       }]
     };
 
@@ -31,7 +34,11 @@ function getUpdatedScopeWithRecipeData(scope, data) {
   // just attach the data to the scope
   scope.recipe = data;
   // get recipe image
-  scope.image = data['images'][0]['hostedLargeUrl'];
+  var remoteImage = data['images'][0]['imageUrlsBySize']['360'];
+
+  if (remoteImage) {
+    scope.image = remoteImage;
+  }
 
   // calculate the total caleries
   scope.totalCaleries = data.nutritionEstimates.reduce(function (total, item) {
