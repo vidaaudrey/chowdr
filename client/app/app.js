@@ -11,6 +11,7 @@ angular.module('tinnr', [
   'tinnr.recipes',
   'tinnr.formula',
   'tinnr.meals',
+  'tinnr.recipeList',
   'ui.router',
   'ui.bootstrap'
 ])
@@ -44,6 +45,12 @@ angular.module('tinnr', [
       url: '/meals',
       controller: 'MealsController',
       authenticate: true
+    })
+    .state('recipeList', {
+      templateUrl: 'app/recipeList/recipeList.html',
+      url: '/recipeSearchResults',
+      controller: 'RecipeListController',
+      params: { searchResponse: null }
     })
     .state('formula', {
       templateUrl: 'app/formula/formula.html',
