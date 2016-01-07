@@ -1,18 +1,45 @@
 angular.module('tinnr.formula', [])
-  .controller('FormulaController', ['$scope', function ($scope) {
-    $scope.recipe = recipe;
-    $scope.image = recipe['images'][0]['hostedLargeUrl'];
-    $scope.totalCaleries = recipe.nutritionEstimates.reduce(function (total, item) {
-      total += item.value;
-      return total;
-    }, 0);
-    $scope.flavorObject = Object.keys(recipe.flavors).reduce(function (total, item) {
-      total[item] = Math.floor(recipe.flavors[item] * 10000);
-      return total;
-    }, {});
-    // console.log('hello', $scope.image, $scope.flavorObject, $scope.totalCaleries);
+  .controller('FormulaController', ['$scope', '$stateParams', function ($scope, $stateParams) {
+    // get the id of the recipe from the stateParams that is passed in by ui router 
+    console.log($stateParams.id);
+
+    // will fill in when we get the remote dat
+    var remoteRecipe = {
+      name: 'Recipe Name',
+      flavors: {},
+      nutritionEstimates: [],
+      ingredientLines: [],
+      totalTime: 0,
+      yield: 0,
+      rating: 0,
+      images: [{
+        hostedLargeUrl: 'http://lorempixel.com/1000/800/animals/'
+      }]
+    };
+
+    $scope = getUpdatedScopeWithRecipeData($scope, recipe);
+    console.log('hello', $scope.image, $scope.flavorObject, $scope.totalCaleries);
   }]);
 
+function getUpdatedScopeWithRecipeData(scope, data) {
+  // just attach the data to the scope
+  scope.recipe = data;
+  // get recipe image
+  scope.image = data['images'][0]['hostedLargeUrl'];
+
+  // calculate the total caleries
+  scope.totalCaleries = data.nutritionEstimates.reduce(function (total, item) {
+    total += item.value;
+    return total;
+  }, 0);
+
+  // process the flavor so we have a bigger number to display
+  scope.flavorObject = Object.keys(data.flavors).reduce(function (total, item) {
+    total[item] = Math.floor(data.flavors[item] * 10000);
+    return total;
+  }, {});
+  return scope;
+}
 var recipe = {
   "attribution": {
     "html": "<a href='http://www.yummly.com/recipe/Hot-Turkey-Salad-Sandwiches-Allrecipes'>Hot Turkey Salad Sandwiches recipe</a> information powered by <img src='http://static.yummly.com/api-logo.png'/>",
