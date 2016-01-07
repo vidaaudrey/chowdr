@@ -1,23 +1,29 @@
 angular.module('tinnr.formula', [])
-  .controller('FormulaController', ['$scope', '$stateParams', function ($scope, $stateParams) {
+  .controller('FormulaController', ['$scope', 'Formula', '$stateParams', function ($scope, Formula, $stateParams) {
     // get the id of the recipe from the stateParams that is passed in by ui router 
     console.log($stateParams.id);
 
     // will fill in when we get the remote dat
     var remoteRecipe = {
       name: 'Recipe Name',
+      yield: 1,
       flavors: {},
       nutritionEstimates: [],
       ingredientLines: [],
-      totalTime: 0,
-      yield: 0,
+      totalTime: '',
       rating: 0,
       images: [{
         hostedLargeUrl: 'http://lorempixel.com/1000/800/animals/'
       }]
     };
 
-    $scope = getUpdatedScopeWithRecipeData($scope, recipe);
+    Formula.getFormula('Oriental-Inspired-Vegetable-Soup-Recipezaar')
+      .then(function (recipeData) {
+        remoteRecipe = getUpdatedScopeWithRecipeData($scope, recipeData);
+        console.log('getting formula from service', recipeData);
+      });
+
+    $scope = getUpdatedScopeWithRecipeData($scope, remoteRecipe);
     console.log('hello', $scope.image, $scope.flavorObject, $scope.totalCaleries);
   }]);
 

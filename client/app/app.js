@@ -6,6 +6,7 @@ angular.module('tinnr', [
   'tinnr.navbarDirectives',
   'tinnr.alertsDirectives',
   'tinnr.searchDirectives',
+  'tinnr.formulaServices',
   'tinnr.auth',
   'tinnr.landing',
   'tinnr.recipes',
@@ -56,7 +57,7 @@ angular.module('tinnr', [
       templateUrl: 'app/formula/formula.html',
       url: '/formula/:id',
       controller: 'FormulaController',
-      authenticate: true
+      authenticate: false
     });
 
   $httpProvider.interceptors.push('AttachTokens');
