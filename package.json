@@ -35,9 +35,9 @@
   },
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install && gulp build",
-    "start": "nodemon server/server.js & gulp",
     "lint": "eslint --ignore-pattern client/lib/,server/data.js,server/recipeData.js,server/search.js client/app/ server/",
     "lint:fix": "npm run lint -- --fix --quiet",
+    "start": "nodemon server/server.js & gulp & sleep 4 && npm run sync",
     "sync": "browser-sync start --files \"client/**/**/**/*.*\" --proxy localhost:3000 --no-inject-changes"
   }
 }
