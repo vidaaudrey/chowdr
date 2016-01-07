@@ -11,7 +11,6 @@ var sequence = require('run-sequence');
 var mocha = require('gulp-mocha');
 var browserSync = require('browser-sync').create();
 
-
 //****** UI Design Related Tasks begin********* //
 gulp.task('ui', ['build-css'], function () {
   browserSync.init({
@@ -34,7 +33,6 @@ gulp.task('sass', function () {
 });
 
 //****** UI Design Related Tasks end ********* //
-
 
 var paths = {
   // all our client app js files, not including 3rd party js files
@@ -106,15 +104,6 @@ gulp.task('serve', ['build'], function () {
 
 gulp.task('build', function (cb) {
   sequence('clean', ['copy', 'build-css', 'build-js'], cb);
-});
-
-gulp.task('eslint', function () {
-  return gulp.src(['**/*.js', '!server/data.js', '!server/search.js', '!test/*.js', '!node_modules/**/*.js', '!client/lib/**/*.js'])
-    .pipe(eslint({
-      fix: true
-    }))
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
 });
 
 gulp.task('default', ['build'], function () {
