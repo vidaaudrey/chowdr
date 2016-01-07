@@ -11,6 +11,7 @@ angular.module('tinnr', [
   'tinnr.recipes',
   'tinnr.formula',
   'tinnr.meals',
+  'tinnr.recipeList',
   'ui.router',
   'ui.bootstrap'
 ])
