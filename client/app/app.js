@@ -47,7 +47,7 @@ angular.module('tinnr', [
     })
     .state('formula', {
       templateUrl: 'app/formula/formula.html',
-      url: '/formula',
+      url: '/formula/:id',
       controller: 'FormulaController',
       authenticate: true
     });

@@ -1,14 +1,16 @@
 <div class="recipe-page">
     <div class="jumbotron jumbotron-recipe" ng-style="{'background-image':'url('+ image + ')'}">
-        <div class="container">
-            <div class="col-sm-12 col-md-10 col-md-offset-1">
-                <h2>Hot Turkey Salad Sandwiches</h2>
-                <div class="recipe-meta">
-                    <span>Ingredients: {{recipe.ingredientLines.length}} </span> /
-                    <span>Nutrition: {{}}  </span> /
-                    <span>Time: {{recipe.totalTime}} </span> /
-                    <span>Serving: {{recipe.yield}} </span> /
-                    <span>Rating: {{recipe.rating}}  </span>
+        <div class="recipe-meta-container">
+            <div class="container">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <h2>{{recipe.name}}</h2>
+                    <div class="recipe-meta">
+                        <span>Ingredients: {{recipe.ingredientLines.length}} </span> /
+                        <span>Nutrition: {{}}  </span> /
+                        <span>Time: {{recipe.totalTime}} </span> /
+                        <span>Serving: {{recipe.yield}} </span> /
+                        <span>Rating: {{recipe.rating}}  </span>
+                    </div>
                 </div>
             </div>
         </div>
