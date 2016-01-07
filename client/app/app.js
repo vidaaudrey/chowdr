@@ -9,6 +9,7 @@ angular.module('tinnr', [
   'tinnr.auth',
   'tinnr.landing',
   'tinnr.recipes',
+  'tinnr.formula',
   'tinnr.meals',
   'ui.router',
   'ui.bootstrap'
@@ -48,7 +49,7 @@ angular.module('tinnr', [
       templateUrl: 'app/formula/formula.html',
       url: '/formula',
       controller: 'FormulaController',
-      authenticate: false
+      authenticate: true
     });
 
   $httpProvider.interceptors.push('AttachTokens');
