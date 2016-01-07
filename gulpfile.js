@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var gutil = require('gulp-util');
-var eslint = require('gulp-eslint');
 var rimraf = require('rimraf');
 var sourcemaps = require('gulp-sourcemaps');
 var nodemon = require('gulp-nodemon');
@@ -11,18 +10,18 @@ var sequence = require('run-sequence');
 var mocha = require('gulp-mocha');
 var browserSync = require('browser-sync').create();
 
-//****** UI Design Related Tasks begin********* //
-gulp.task('ui', ['build-css'], function () {
-  browserSync.init({
-    server: "./client/build/assets/"
-  });
-  gulp.watch("./client/**/*.scss", ['build-css']);
-  gulp.watch("./client/build/assets/**/*.*").on('change', watchChangeHandler);
-});
-
+// ****** UI Design Related Tasks begin********* //
 function watchChangeHandler() {
   browserSync.reload();
-};
+}
+
+gulp.task('ui', ['build-css'], function () {
+  browserSync.init({
+    server: './client/build/assets/'
+  });
+  gulp.watch('./client/**/*.scss', ['build-css']);
+  gulp.watch('./client/build/assets/**/*.*').on('change', watchChangeHandler);
+});
 
 gulp.task('sass', function () {
   gulp.src('./client/build/**/*.scss')
@@ -32,7 +31,7 @@ gulp.task('sass', function () {
     .pipe(browserSync.stream());
 });
 
-//****** UI Design Related Tasks end ********* //
+// ****** UI Design Related Tasks end ********* //
 
 var paths = {
   // all our client app js files, not including 3rd party js files
@@ -70,17 +69,17 @@ gulp.task('build-js', function () {
 });
 
 gulp.task('test', function () {
-  //nodemon({script: 'server/server.js', ignore: 'node_modules/**/*.js'});
+  // nodemon({script: 'server/server.js', ignore: 'node_modules/**/*.js'});
   return gulp.src(['test/*.js'], {
-      read: false
-    })
-    .pipe(mocha({
-      reporter: 'spec',
-      timeout: 5000,
-      globals: {
-        expect: require('chai').expect
-      }
-    }));
+    read: false
+  })
+  .pipe(mocha({
+    reporter: 'spec',
+    timeout: 5000,
+    globals: {
+      expect: require('chai').expect
+    }
+  }));
 });
 
 // any changes to client side code will automagically refresh your page
