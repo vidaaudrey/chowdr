@@ -66,3 +66,7 @@ More look at issues
 [How to close Github Issues from terminal](https://help.github.com/articles/closing-issues-via-commit-messages/)
 * A commit message with `Fixes #45` will close issue 45 in that repository once the commit is merged into the default branch. 
 * `This closes #34, closes #23, and closes example_user/example_repo#42` would close issues #34 and #23 in the same repository, and issue #42 in the "example_user/example_repo" repository.
+
+
+### Image Credit
+[Homepage Background] (https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=3c19ae5da71204726943a09436fb1737)
