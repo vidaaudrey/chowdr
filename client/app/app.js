@@ -10,6 +10,7 @@ angular.module('tinnr', [
   'tinnr.landing',
   'tinnr.recipes',
   'tinnr.meals',
+  'tinnr.recipeList',
   'ui.router',
   'ui.bootstrap'
 ])
