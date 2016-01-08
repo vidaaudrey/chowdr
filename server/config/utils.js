@@ -23,5 +23,15 @@ module.exports = {
     } catch (error) {
       return next(error);
     }
+  },
+  checkFileExistence: function checkFileExistence(filePath) {
+    try {
+      fs.statSync(filePath).isFile();
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+
+    return true;
   }
 };
