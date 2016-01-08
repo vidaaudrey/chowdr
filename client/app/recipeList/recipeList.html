@@ -1,31 +1,6 @@
 <div class="container content-container">
     <h1>Recipe Search Results</h1>
-    <div class="row row-flex" ng-repeat="row in meals">
-        <div class="col-xs-6 col-md-3 meal" ng-repeat="meal in row">
-            <div class="thumbnail">
-                <a ng-click="getFormulaPage(meal.id)" target="_new">
-                    <img ng-src="{{meal.imageUrlsBySize[90]}}" alt="{{meal.recipeName}}">
-                </a>
-                <div class="caption">
-                    <a ng-click="getFormulaPage(meal.id)" target="_new">
-                        <h4>{{meal.recipeName}}</h4>
-                    </a>
-                    <p class="text-muted">Ready in: {{meal.totalTimeInSeconds / 60}} mins</p>
-                    <button type="button" class="btn btn-default btn-ingredients" ng-click="isCollapsed = !isCollapsed">
-                        Ingredients
-                    </button>
-                    <div uib-collapse="isCollapsed" ng-init="isCollapsed = true">
-                        <ol>
-                            <li ng-repeat="ingredient in meal.ingredients">
-                                <p>{{ingredient}}</p>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-offset-{{offsets}}" ng-if="$last"></div>
-    </div>
+    <recipelist></recipelist>
     <div class="row" ng-show="meals.length === 0">
         <div class="alert alert-info" role="alert">Search for something to get started!</div>
     </div>
