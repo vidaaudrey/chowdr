@@ -4,6 +4,9 @@ angular.module('tinnr.meals', ['ui.router'])
     $scope.meals = [];
     $scope.offsets = 0;
     $scope.isRecipeListPage = $state.includes('recipeList');
+    $scope.getFormulaPage = function (id) {
+      $state.go('formula', { id: id });
+    };
 
 
     $scope.getMeals = function () {
@@ -16,7 +19,6 @@ angular.module('tinnr.meals', ['ui.router'])
           console.log('Error fetching meals', error);
         });
     };
-
     $scope.deleteMeal = function (meal) {
       Meals.deleteMeal(meal)
         .catch(function (error) {
