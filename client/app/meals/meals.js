@@ -1,8 +1,10 @@
-angular.module('tinnr.meals', [])
-  .controller('MealsController', ['$scope', 'Meals', function ($scope, Meals) {
+angular.module('tinnr.meals', ['ui.router'])
+  .controller('MealsController', ['$scope', 'Meals', '$state', function ($scope, Meals, $state) {
     $scope.cols = 4;
     $scope.meals = [];
     $scope.offsets = 0;
+    $scope.isRecipeListPage = $state.includes('recipeList');
+
 
     $scope.getMeals = function () {
       Meals.getMeals()
