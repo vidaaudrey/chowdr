@@ -41,6 +41,45 @@
 
 ## Project Meeting Memo 
 
+
+### 08 January 2016
+
+**Discuss**
+
+* Fix 
+  - Update the [recipe link](http://localhost:3000/#/recipes)  in the recipes page to point to formula page 
+  - Save as above, but update the [meals page](http://localhost:3000/#/meals)
+  - Update Logo 
+  - Fix the [search result](http://localhost:3000/#/recipeSearchResults/hello), create placeholder for non-exist images 
+
+* TODO 
+  - Add star-rating directive 
+  - Prettify [Tastes Chart](http://localhost:3000/#/formula/Crudaiola-Pasta-1453667) to display in different colors
+
+* Feature 
+  **Add ingredience to shopping list display the list to user**
+  - Route and Dependency.  Update the app file only. route: '/shoppinglist', dependency: 'addToShoppingList, shoppingList'
+
+  - Directive / Controller: addToShoppingList.  Call the ShoppingListService.addListItem(item), item is the ingredience line which is a string 
+
+  - Directive / Controller: addAllToShoppingList.  Call the ShoppingListService.addAllToShoppingList(items), items is an array of strings 
+
+  - Directive / Controller: shoppingList. Call the ShoppingListService.getShoppingList() to get all the list, which will be an array of strings 
+
+  - Service: ShoppingListService. It has three methods: 
+    * addListItem(item) which take a string and return a success / failure message 
+    * addAllToList(items) which takes an array of strings and return a success / failure message 
+    * getShoppingList() which return the an array of strings
+    *Note, for now, we'll use local storage to store all the shopping items*
+
+  - Page and UI Design. 
+    * Create the page and css for shopping list page 
+    * addToShoppingList button
+    * addAllToShoppingList button 
+    * Add navigation link 
+
+
+
 ### Thursday January 07 2016
 **Discuss**
 * Demo time (2 minutes) to show learnings, code...

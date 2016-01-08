@@ -154,6 +154,10 @@ footer {
 * HomePage  styling
 * ========================================================================== */
 
+.landing {
+    padding-bottom: 0 !important;
+}
+
 .jumbotron-home {
     background: url('../img/home-bg-small-compressor.jpeg');
     min-height: 1000px;
