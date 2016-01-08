@@ -1,4 +1,5 @@
 var jwt = require('jwt-simple');
+var fs = require('fs');
 
 module.exports = {
   logError: function (err, req, res, next) {
