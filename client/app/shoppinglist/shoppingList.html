@@ -1,3 +1,21 @@
-<div class="shopping-list-page">
-    <h2>Shopping List</h2>
+<div class="shopping-list-page
+">
+    <div class="container content-container shopping-list-container">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <h2>Shopping List</h2>
+            <div class="row meta-row">
+                <a href="#" ng-click="alert('hello')" class="pull-right"> 
+                    Delete All
+                    <i class="fa fa-trash"></i>
+                </a>
+            </div>
+            <div class="row">
+                <ul class="list-group" ng-repeat="item in shoppingList">
+                    <li class="list-group-item">{{item}}
+                        <a href="#" ng-click="alert('hello')" class="pull-right"> <i class="fa fa-trash"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

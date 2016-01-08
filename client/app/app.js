@@ -65,7 +65,7 @@ angular.module('tinnr', [
       templateUrl: 'app/shoppinglist/shoppingList.html',
       url: '/shoppinglist',
       controller: 'ShoppingListController',
-      authenticate: false
+      authenticate: true
     });
 
   $httpProvider.interceptors.push('AttachTokens');
