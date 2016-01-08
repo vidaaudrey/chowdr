@@ -63,5 +63,8 @@ module.exports = {
             });
         }
       });
+  },
+  deleteRecipe: function (req, res, next) {
+    var id = req.body.id;
   }
 };
