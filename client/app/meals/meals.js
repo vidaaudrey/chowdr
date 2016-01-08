@@ -15,5 +15,12 @@ angular.module('tinnr.meals', [])
         });
     };
 
+    $scope.deleteMeal = function (meal) {
+      Meals.deleteMeal(meal)
+        .catch(function (error) {
+          console.log('Error deleting meal', error);
+        });
+    };
+
     $scope.getMeals();
   }]);
