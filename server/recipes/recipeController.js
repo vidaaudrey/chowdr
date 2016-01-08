@@ -4,6 +4,7 @@ var Recipe = require('./recipeModel.js');
 var request = require('request');
 var url = require('url');
 var Q = require('q');
+var utils = require('utils');
 // commented out for deployment
 // uncomment for development
 var apiInfo = require('./apiKeys.js');
