@@ -20,7 +20,7 @@ angular.module('tinnr.formula', [])
       }]
     };
 
-    Formula.getFormula('Oriental-Inspired-Vegetable-Soup-Recipezaar')
+    Formula.getFormula($stateParams.id)
       // Formula.getFormula('Oriental-Inspired-Vegetable-Soup-Recipezaar')
       .then(function (recipeData) {
         remoteRecipe = getUpdatedScopeWithRecipeData($scope, recipeData);

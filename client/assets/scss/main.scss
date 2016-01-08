@@ -92,7 +92,7 @@ nav {
         z-index: 100;
         top: 0;
         width: 100%;
-        background: linear-gradient($black-transparent, transparent);
+        background: linear-gradient($black-transparent-nav, transparent);
         border: none;
         .navbar-brand {
             color: $white-base;
@@ -130,6 +130,7 @@ main {
     background-color: $white-base;
     .content-container {
         padding-top: 80px;
+        padding-bottom: 80px;
     }
 }
 
@@ -152,6 +153,10 @@ footer {
 /*
 * HomePage  styling
 * ========================================================================== */
+
+.landing {
+    padding-bottom: 0 !important;
+}
 
 .jumbotron-home {
     background: url('../img/home-bg-small-compressor.jpeg');
@@ -196,6 +201,17 @@ footer {
         .flavor-title {
             width: 100px;
         }
+    }
+}
+
+
+/*
+* Recipe List Page  styling
+* ========================================================================== */
+
+.recipe-list-page {
+    .thumbnail {
+        cursor: pointer;
     }
 }
 
