@@ -58,18 +58,11 @@ Fix (most) errors and show the remaining ones (warnings will be silenced):
 npm run lint:fix
 ```
 
-## Server and Build Watcher
+## Server, Build, Watcher, and Live Reload
 
-Start the server, run build, and watch for changes:
+Start the server, build, watch for changes, and live-reload HTML and CSS:
 ```
 npm start
-```
-
-## Hot Reload
-
-Open your default web browser and reload when changes occur in client/ directory
-```
-npm run sync
 ```
 
 ## File Structure
