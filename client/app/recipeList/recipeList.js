@@ -5,6 +5,8 @@ angular.module('tinnr.recipeList', ['ui.router'])
     $scope.offsets = 0;
     $scope.preferences = {};
     $scope.preferences.q = $stateParams.searchQuery;
+    $scope.isRecipeListPage = $state.includes('recipeList');
+
 
     $scope.getRecipes = function (params) {
       Recipes.getRecipes(params)
