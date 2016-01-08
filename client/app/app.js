@@ -49,9 +49,8 @@ angular.module('tinnr', [
     })
     .state('recipeList', {
       templateUrl: 'app/recipeList/recipeList.html',
-      url: '/recipeSearchResults',
-      controller: 'RecipeListController',
-      params: { searchResponse: null }
+      url: '/recipeSearchResults/:searchQuery',
+      controller: 'RecipeListController'
     })
     .state('formula', {
       templateUrl: 'app/formula/formula.html',
