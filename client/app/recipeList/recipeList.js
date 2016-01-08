@@ -7,10 +7,8 @@ angular.module('tinnr.recipeList', ['ui.router'])
     $scope.preferences.q = $stateParams.searchQuery;
 
     $scope.getRecipes = function (params) {
-      console.log('the get recipes function is happening');
       Recipes.getRecipes(params)
         .then(function (data) {
-          console.log('this got executed', JSON.parse(data).matches);
           $scope.meals = JSON.parse(data).matches;
           $scope.offsets = $scope.cols - ($scope.meals.length % $scope.cols);
           $scope.meals = _.chunk($scope.meals, $scope.cols);
@@ -19,11 +17,7 @@ angular.module('tinnr.recipeList', ['ui.router'])
           console.error('Error fetching recipes: ', error);
         });
     };
-
     $scope.getRecipes($scope.preferences);
-
-    console.log('this is $stateParams in the recipeList.js file', $stateParams.searchQuery);
-
     $scope.getFormulaPage = function (id) {
       $state.go('formula', { id: id });
     };
