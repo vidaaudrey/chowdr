@@ -46,15 +46,23 @@
 
 **Discuss**
 
+* Plan 
+
+
 * Fix 
-  - Update the [recipe link](http://localhost:3000/#/recipes)  in the recipes page to point to formula page 
-  - Save as above, but update the [meals page](http://localhost:3000/#/meals)
-  - Update Logo 
-  - Fix the [search result](http://localhost:3000/#/recipeSearchResults/hello), create placeholder for non-exist images 
+  - Refactor and Fix DeleteButton on RecipeList  - Ahmed
+  - Put searchbox in the Recipe search result page  - Ahmed
+  - Update Readme - Chris 
+  - Server Delete Request - Benji
+  - Get ride of 'result' in recipes page  - Chris 
+  - Update the [recipe link](http://localhost:3000/#/recipes)  in the recipes page to point to formula page  - Ahmed
+  - Save as above, but update the [meals page](http://localhost:3000/#/meals) - Ahmed
+  - Update Logo - Ahmed 
+  - Fix the [search result](http://localhost:3000/#/recipeSearchResults/hello), create placeholder for non-exist images - Ahmed 
 
 * TODO 
-  - Add star-rating directive 
-  - Prettify [Tastes Chart](http://localhost:3000/#/formula/Crudaiola-Pasta-1453667) to display in different colors
+  - Add star-rating directive - Chris 
+  - Prettify [Tastes Chart](http://localhost:3000/#/formula/Crudaiola-Pasta-1453667) to display in different colors - Audrey 
 
 * Feature 
   **Add ingredience to shopping list display the list to user**
@@ -66,7 +74,7 @@
 
   - Directive / Controller: shoppingList. Call the ShoppingListService.getShoppingList() to get all the list, which will be an array of strings 
 
-  - Service: ShoppingListService. It has three methods: 
+  - Service: ShoppingListService. It has three methods:  -- Benji 
     * addListItem(item) which take a string and return a success / failure message 
     * addAllToList(items) which takes an array of strings and return a success / failure message 
     * getShoppingList() which return the an array of strings
@@ -78,6 +86,7 @@
     * addAllToShoppingList button 
     * Add navigation link 
 
+  - Chunk Data on Recipe Detail Page 
 
 
 ### Thursday January 07 2016
