@@ -17,9 +17,8 @@ angular.module('tinnr.recipeList', ['ui.router'])
           console.error('Error fetching recipes: ', error);
         });
     };
+    $scope.getRecipes($scope.preferences);
     $scope.getFormulaPage = function (id) {
       $state.go('formula', { id: id });
     };
-
-    $scope.getRecipes($scope.preferences);
   }]);
