@@ -4,7 +4,7 @@ var Recipe = require('./recipeModel.js');
 var request = require('request');
 var url = require('url');
 var Q = require('q');
-var utils = require('utils');
+var utils = require('../config/utils');
 
 var apiInfo = null;
 if (utils.checkFileExistence('./apiKeys.js')) {

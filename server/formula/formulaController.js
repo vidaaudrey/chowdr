@@ -1,7 +1,7 @@
 var db = require('../recipeData.js');
 var request = require('request');
 var url = require('url');
-var utils = require('utils');
+var utils = require('../config/utils');
 
 var apiInfo = null;
 if (utils.checkFileExistence('../recipes/apiKeys.js')) {
