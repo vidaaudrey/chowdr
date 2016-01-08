@@ -1,5 +1,5 @@
 angular.module('tinnr.searchDirectives', ['tinnr.recipes', 'ui.router'])
-  .directive('searchbar', ['Recipes', '$state', function (Recipes, $state) {
+  .directive('searchbar', ['$state', function ($state) {
     return {
       restrict: 'E',
       templateUrl: 'app/partials/_search.html',
@@ -7,14 +7,7 @@ angular.module('tinnr.searchDirectives', ['tinnr.recipes', 'ui.router'])
         $scope.preferences = {};
         $scope.searchResponse;
         $scope.getRecipes = function () {
-          Recipes.getRecipes($scope.preferences)
-            .then(function (data) {
-              $scope.searchResponse = data;
-              $state.go('recipeList', { searchResponse: $scope.searchResponse });
-            })
-            .catch(function (error) {
-              console.error('Error fetching recipes: ', error);
-            });
+          $state.go('recipeList', { searchQuery: $scope.preferences.q });
         };
       }
     };
