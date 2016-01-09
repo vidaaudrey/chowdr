@@ -17,11 +17,19 @@
     </div>
     <div class="container recipe-container">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <div class="alert alert-success" ng-show="message!== ''">
+                <strong>{{message}}</strong>
+                <a href="/#/shoppinglist" title="My Shopping List" class="pull-right">
+                    <i class="fa fa-list"></i>My Shopping List
+                </a>
+            </div>
             <div class="ingredience">
                 <h3>Ingredients</h3>
                 <ul class="list-group" ng-repeat="ingredient in recipe.ingredientLines">
                     <li class="list-group-item">{{ingredient}}
-                        <a href="#" class="pull-right"> <i class="fa fa-plus"></i></a>
+                        <button ng-click="addItemToShoppingList(ingredient)" class="btn btn-success pull-right list-group-item-button">
+                            <i class="fa fa-plus"></i>
+                        </button>
                     </li>
                 </ul>
             </div>

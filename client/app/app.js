@@ -8,10 +8,12 @@ angular.module('tinnr', [
   'tinnr.searchDirectives',
   'tinnr.recipelistDirectives',
   'tinnr.formulaServices',
+  'tinnr.shoppingListServices',
   'tinnr.auth',
   'tinnr.landing',
   'tinnr.recipes',
   'tinnr.formula',
+  'tinnr.shoppingList',
   'tinnr.meals',
   'tinnr.recipeList',
   'ui.router',
@@ -58,6 +60,12 @@ angular.module('tinnr', [
       url: '/formula/:id',
       controller: 'FormulaController',
       authenticate: false
+    })
+    .state('shoppingList', {
+      templateUrl: 'app/shoppinglist/shoppingList.html',
+      url: '/shoppinglist',
+      controller: 'ShoppingListController',
+      authenticate: true
     });
 
   $httpProvider.interceptors.push('AttachTokens');

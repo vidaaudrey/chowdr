@@ -96,6 +96,20 @@ nav {
         border: none;
         .navbar-brand {
             color: $white-base;
+            img {
+                width: 150px;
+                float: left;
+            }
+            .brand-name {
+                width: 100px;
+                margin-top: 60px;
+                font-size: 50px;
+                color: $primary-color;
+                height: 60px;
+                float: left;
+                margin-left: 20px;
+                font-family: monospace;
+            }
         }
         .slogan {
             height: 100%;
@@ -109,6 +123,7 @@ nav {
             li {
                 a {
                     color: $primary-color;
+                    font-size: 20px;
                     &:active,
                     &:hover {
                         color: $dark-primary-color;
@@ -129,7 +144,7 @@ main {
     min-height: 600px;
     background-color: $white-base;
     .content-container {
-        padding-top: 80px;
+        padding-top: 180px;
         padding-bottom: 80px;
     }
 }
@@ -202,16 +217,44 @@ footer {
             width: 100px;
         }
     }
+    .list-group-item-button {
+        margin-top: -6px;
+        margin-right: -12px;
+    }
 }
-
-
-/*
-* Recipe List Page  styling
-* ========================================================================== */
 
 .recipe-list-page {
     .thumbnail {
         cursor: pointer;
+    }
+}
+
+
+/** Recipe List Page styling *==========================================================================*/
+
+.recipe-list-page {
+    .thumbnail {
+        cursor: pointer;
+    }
+}
+
+
+/*
+* Shopping List Page  styling
+* ========================================================================== */
+
+.shopping-list-page {
+    .meta-row {
+        margin-bottom: 16px;
+    }
+    .thumbnail {
+        cursor: pointer;
+    }
+    .row {
+        padding: 16px;
+        button {
+            margin-top: -6px;
+        }
     }
 }
 
@@ -246,4 +289,8 @@ footer {
 .jumbotron {
     margin-top: -80px;
     @include cover-background()
+}
+
+.search-recipe-form {
+    margin: 16px;
 }

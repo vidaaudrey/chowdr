@@ -4,9 +4,9 @@ angular.module('tinnr.formulaServices', [])
 
     formula.getFormula = function (id) {
       return $http({
-          method: 'GET',
-          url: '/api/formula/' + id
-        })
+        method: 'GET',
+        url: '/api/formula/' + id
+      })
         .then(function (res) {
           // console.log('getting formula from server', res.data);
           return res.data;

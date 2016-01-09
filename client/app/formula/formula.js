@@ -1,7 +1,8 @@
 angular.module('tinnr.formula', [])
-  .controller('FormulaController', ['$scope', 'Formula', '$stateParams', function ($scope, Formula, $stateParams) {
+  .controller('FormulaController', ['$scope', 'Formula', '$stateParams', 'ShoppingList', function ($scope, Formula, $stateParams, ShoppingList) {
     // get the id of the recipe from the stateParams that is passed in by ui router
-    console.log($stateParams.id);
+    // console.log($stateParams.id);
+    $scope.message = '';
 
     // will fill in when we get the remote dat
     var remoteRecipe = {
@@ -29,6 +30,12 @@ angular.module('tinnr.formula', [])
 
     $scope = getUpdatedScopeWithRecipeData($scope, remoteRecipe);
     console.log('hello', $scope.image, $scope.flavorObject, $scope.totalCaleries);
+
+    $scope.addItemToShoppingList = function (item) {
+      ShoppingList.addItem(item);
+      $scope.message = 'Added item to list: ' + item;
+    };
+
   }]);
 
 function getUpdatedScopeWithRecipeData(scope, data) {
