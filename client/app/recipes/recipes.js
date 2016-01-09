@@ -1,5 +1,5 @@
-angular.module('tinnr.recipes', [])
-  .controller('RecipesController', ['$scope', 'Recipes', 'Meals', 'Auth', 'User', function ($scope, Recipes, Meals, Auth, User) {
+angular.module('tinnr.recipes', ['ui.router'])
+  .controller('RecipesController', ['$scope', 'Recipes', 'Meals', 'Auth', 'User', '$state', function ($scope, Recipes, Meals, Auth, User, $state) {
     $scope.currentIndex = 0;
     $scope.recipes = [];
     $scope.preferences = User.data.preferences;
@@ -41,6 +41,10 @@ angular.module('tinnr.recipes', [])
           $scope.alerts.push({ type: 'danger', msg: 'Error saving preferences.' });
           console.error('Error saving preferences: ', error);
         });
+    };
+
+    $scope.getFormulaPage = function (id) {
+      $state.go('formula', { id: id });
     };
 
     $scope.getRecipes($scope.preferences);
