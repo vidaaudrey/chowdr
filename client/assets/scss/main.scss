@@ -211,9 +211,7 @@ footer {
 }
 
 
-/*
-* Recipe List Page  styling
-* ========================================================================== */
+/** Recipe List Page styling *==========================================================================*/
 
 .recipe-list-page {
     .thumbnail {
@@ -232,6 +230,13 @@ footer {
     }
     .thumbnail {
         cursor: pointer;
+    }
+    .row {
+        padding: 16px;
+
+        button{
+            margin-top: -6px;
+        }
     }
 }
 

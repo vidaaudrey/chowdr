@@ -1,20 +1,25 @@
-<div class="shopping-list-page
-">
+<div class="shopping-list-page">
     <div class="container content-container shopping-list-container">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
             <h2>Shopping List</h2>
-            <div class="row meta-row">
-                <a href="#" ng-click="alert('hello')" class="pull-right"> 
+            <div class="alert alert-success" ng-show="message!== ''">
+                <strong>{{message}}</strong>
+            </div>
+            <div class="row meta-row" ng-show="shoppingList.length > 0">
+                <button ng-click="removeAll()" class="btn btn-danger pull-right">
                     Delete All
                     <i class="fa fa-trash"></i>
-                </a>
+                </button>
             </div>
             <div class="row">
                 <ul class="list-group" ng-repeat="item in shoppingList">
                     <li class="list-group-item">{{item}}
-                        <a href="#" ng-click="alert('hello')" class="pull-right"> <i class="fa fa-trash"></i></a>
+                        <button ng-click="removeItem(item)" class="btn btn-danger pull-right">
+                            <i class="fa fa-trash"></i>
+                        </button>
                     </li>
                 </ul>
+                <h3 ng-show="shoppingList.length < 1"> There is no item on your shopping list</h3>
             </div>
         </div>
     </div>

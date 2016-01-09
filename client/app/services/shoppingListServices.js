@@ -7,29 +7,50 @@ function checkIsLocalStorageSupported() {
   return false;
 }
 
+
 angular.module('tinnr.shoppingListServices', [])
   .factory('ShoppingList', ['$http', function ($http) {
     var shoppingList = {};
-    shoppingList.addListItem = function (item) {
+
+    shoppingList.addItem = function (item) {
       if (checkIsLocalStorageSupported()) {
-        var oldStorage = localStorage.getItem('shoppingList') || [];
+        var oldStorage = JSON.parse(localStorage.getItem('shoppingList') || '[]');
         oldStorage.push(item);
-        localStorage.setItem('shoppingList', oldStorage);
+        localStorage.setItem('shoppingList', JSON.stringify(oldStorage));
       }
     };
 
-    shoppingList.addAllToList = function (items) {
+    shoppingList.addAll = function (items) {
       if (checkIsLocalStorageSupported()) {
-        var oldStorage = localStorage.getItem('shoppingList') || [];
+        var oldStorage = JSON.parse(localStorage.getItem('shoppingList') || '[]');
         oldStorage.concat(items);
-        localStorage.setItem('shoppingList', oldStorage);
+        localStorage.setItem('shoppingList', JSON.stringify(oldStorage));
       }
     };
 
-    shoppingList.getShoppingList = function () {
+    shoppingList.getList = function () {
       if (checkIsLocalStorageSupported()) {
-        return localStorage.getItem('shoppingList') || [];
+        return JSON.parse(localStorage.getItem('shoppingList') || '[]');
       }
     };
+
+    shoppingList.removeAll = function (items) {
+      if (checkIsLocalStorageSupported()) {
+        localStorage.setItem('shoppingList', '[]');
+      }
+    };
+
+    shoppingList.removeItem = function (item) {
+      if (checkIsLocalStorageSupported()) {
+        var oldStorage = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+        var index = oldStorage.indexOf(item);
+        if (index !== -1) {
+          oldStorage.splice(index, 1);
+          localStorage.setItem('shoppingList', JSON.stringify(oldStorage));
+        }
+      }
+    };
+
+
     return shoppingList;
   }]);
