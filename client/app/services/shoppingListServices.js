@@ -1,4 +1,4 @@
-// we'll delete this later once we move the storage to server side 
+// we'll delete this later once we move the storage to server side
 function checkIsLocalStorageSupported() {
   if (typeof (Storage) !== undefined) {
     return true;
