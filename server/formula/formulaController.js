@@ -1,12 +1,7 @@
 var db = require('../recipeData.js');
 var request = require('request');
 var url = require('url');
-var utils = require('../config/utils');
-
-var apiInfo = null;
-if (utils.checkFileExistence('../recipes/apiKeys.js')) {
-  apiInfo = require('../recipes/apiKeys.js');
-}
+var apiInfo = require('../recipes/apiKeys.js');
 
 module.exports = {
   getFormula: function (req, res, next) {
