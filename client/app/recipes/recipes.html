@@ -81,7 +81,7 @@
             <div class="thumbnail recipe-card">
                 <img ng-src="{{recipe.imageUrlsBySize[90]}}" alt="{{recipe.recipeName}}">
                 <div class="caption">
-                    <a href="http://www.yummly.com/recipe/external/{{recipe.id}}" target="_new">
+                    <a ng-click="getFormulaPage(recipe.id)">
                         <h4>{{recipe.recipeName}}</h4>
                     </a>
                     <p class="text-muted">Ready in: {{recipe.totalTimeInSeconds / 60}} mins</p>
