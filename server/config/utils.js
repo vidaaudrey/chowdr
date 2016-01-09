@@ -27,13 +27,13 @@ module.exports = {
   handleApiKeys: function (filePath) {
     try {
       fs.accessSync(filePath, fs.F_OK);
-      console.log('Searching for ' + filePath)
+      console.log('Searching for ' + filePath);
     } catch (error) {
       console.log('Check API keys in apiKeys.js\n', error);
       return null;
     }
 
-    console.log('Found ' + filePath)
+    console.log('Found ' + filePath);
     return require(filePath);
   }
 };
