@@ -1,5 +1,6 @@
 var express = require('express');
-// The folowing line declares a `db` variable that does not seem to be used anywhere
+
+// NOTE: Do not delete
 var db = require('./db.js');
 
 var app = express();
