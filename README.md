@@ -110,3 +110,8 @@ We used airbnb's es5 style guide at the following link
 - Christoper Decker ([altroncwd](https://github.com/altroncwd))
 
 MKS Legacy Project
+
+## Special Mention
+Chowdr was based off of work from FullMetalJS
+
+To view their origonal repo visit [here](https://github.com/Full-Metal-JS/tinnr)
