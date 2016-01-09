@@ -29,7 +29,7 @@ module.exports = {
       fs.accessSync(filePath, fs.F_OK);
       console.log('Searching for ' + filePath)
     } catch (error) {
-      console.log('Check API keys in apiKeys.js');
+      console.log('Check API keys in apiKeys.js\n', error);
       return null;
     }
 
