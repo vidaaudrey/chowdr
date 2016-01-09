@@ -1,4 +1,5 @@
 var jwt = require('jwt-simple');
+var fs = require('fs');
 
 module.exports = {
   logError: function (err, req, res, next) {
@@ -22,5 +23,17 @@ module.exports = {
     } catch (error) {
       return next(error);
     }
+  },
+  handleApiKeys: function (filePath) {
+    try {
+      fs.accessSync(filePath, fs.F_OK);
+      console.log('Searching for ' + filePath)
+    } catch (error) {
+      console.log('Check API keys in apiKeys.js');
+      return null;
+    }
+
+    console.log('Found ' + filePath)
+    return require(filePath);
   }
 };
