@@ -4,9 +4,10 @@ var Recipe = require('./recipeModel.js');
 var request = require('request');
 var url = require('url');
 var Q = require('q');
-// commented out for deployment
-// uncomment for development
-// var apiInfo = require('./apiKeys.js');
+var utils = require('../config/utils');
+
+// Will only call require('./apiKeys.js') if apiKeys.js exists
+var apiInfo = utils.handleApiKeys(__dirname + '/apiKeys.js');
 
 module.exports = {
   getRecipes: function (req, res, next) {
