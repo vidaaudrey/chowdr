@@ -44,7 +44,7 @@ angular.module('tinnr.formula', [])
 function getUpdatedScopeWithRecipeData(scope, data) {
   // just attach the data to the scope
   // scope.recipe = data would work, but to deal with data inconsistency, we are separating it now
-  scope.maxRatings = []
+  scope.maxRatings = [];
   for (var i = 0; i < data.rating; i++) {
     scope.maxRatings.push({});
   }
@@ -79,8 +79,8 @@ function getUpdatedScopeWithRecipeData(scope, data) {
   return scope;
 }
 
-function addToMaxRatings (scope, recipeRating) {
-    for (var i = 0; i < recipeRating; i++) {
-      scope.maxRatings.push({});
-    }
+function addToMaxRatings(scope, recipeRating) {
+  for (var i = 0; i < recipeRating; i++) {
+    scope.maxRatings.push({});
   }
+}
