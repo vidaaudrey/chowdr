@@ -19,7 +19,10 @@
                         </button>
                     </li>
                 </ul>
-                <h3 ng-show="shoppingList.length < 1"> There is no item on your shopping list</h3>
+                <div ng-show="shoppingList.length < 1">
+                    <h3>There is no item on your shopping list</h3>
+                    <a href="/#/recipeSearchResults/pasta"> Check out recipes and add some</a>
+                </div>
             </div>
         </div>
     </div>
