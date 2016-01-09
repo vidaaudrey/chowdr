@@ -1,7 +1,11 @@
 var db = require('../recipeData.js');
 var request = require('request');
 var url = require('url');
-// var apiInfo = require('../recipes/apiKeys.js');
+var fs = require('fs');
+var utils = require('../config/utils');
+
+// Will only call require('../recipes/apiKeys.js') if apiKeys.js exists
+var apiInfo = utils.handleApiKeys(__dirname + '/../recipes/apiKeys.js');
 
 module.exports = {
   getFormula: function (req, res, next) {
