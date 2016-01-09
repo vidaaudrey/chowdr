@@ -4,12 +4,9 @@ var Recipe = require('./recipeModel.js');
 var request = require('request');
 var url = require('url');
 var Q = require('q');
-var utils = require('../config/utils');
-
-var apiInfo = null;
-if (utils.checkFileExistence('./apiKeys.js')) {
-  apiInfo = require('./apiKeys.js');
-}
+// commented out for deployment
+// uncomment for development
+var apiInfo = require('./apiKeys.js');
 
 module.exports = {
   getRecipes: function (req, res, next) {

@@ -1,5 +1,4 @@
 var jwt = require('jwt-simple');
-var fs = require('fs');
 
 module.exports = {
   logError: function (err, req, res, next) {
@@ -23,15 +22,5 @@ module.exports = {
     } catch (error) {
       return next(error);
     }
-  },
-  checkFileExistence: function checkFileExistence(filePath) {
-    try {
-      fs.statSync(filePath).isFile();
-    } catch (error) {
-      console.log(error);
-      return false;
-    }
-
-    return true;
   }
 };
