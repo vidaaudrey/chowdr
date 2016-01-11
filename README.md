@@ -1,8 +1,6 @@
 # chowdr
-Not sure what to have for dinner?
-Why don't you try Chowdr
-
-[Chowdr]( http://chowdr9.herokuapp.com/)
+Not sure what to have for dinner? Why don't you try Chowdr! 
+Demo: [Chowdr]( http://chowdr9.herokuapp.com/)
 
 ## Introduction
 
